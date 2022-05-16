@@ -102,6 +102,7 @@ class _TableEventsExampleState extends State<TableEventsExample> {
             eventLoader: _getEventsForDay,
             startingDayOfWeek: StartingDayOfWeek.monday,
             calendarStyle: CalendarStyle(
+              markerSize: 22,
               // Use `CalendarStyle` to customize the UI
               outsideDaysVisible: false,
             ),
@@ -124,7 +125,7 @@ class _TableEventsExampleState extends State<TableEventsExample> {
               valueListenable: _selectedEvents,
               builder: (context, value, _) {
                 return ListView.builder(
-                  itemCount: value.length,
+                  itemCount: value.length == 0 ? 0 : 1,
                   itemBuilder: (context, index) {
                     return Container(
                       margin: const EdgeInsets.symmetric(
